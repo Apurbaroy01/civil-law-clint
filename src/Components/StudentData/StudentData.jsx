@@ -1,6 +1,6 @@
 
 const StudentDatas = ({students}) => {
-  const {name, email, address, }=students
+  const {name, email, address, university,year,roll,month}=students
   console.log(students)
   const student = {
     // name: "John Doe",
@@ -64,11 +64,14 @@ const StudentDatas = ({students}) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-6 bg-gray-50 p-4 rounded-md border">
         <p><span className="font-semibold">Student Name:</span> {name}</p>
-        <p><span className="font-semibold">Class Roll:</span> </p>
-        <p><span className="font-semibold">University:</span> </p>
-        <p><span className="font-semibold">Session:</span> </p>
+        <p><span className="font-semibold">Class Roll: </span><span>{year}-</span>{roll} </p>
+        <p><span className="font-semibold">University:</span> {university}</p>
+        <p><span className="font-semibold">Session:</span> {month}</p>
+        <p><span className="font-semibold">Home address:</span> {address}</p>
+        <p><span className="font-semibold">Email:</span> {email}</p>
         <p><span className="font-semibold">Teacher Name:</span> SHANTO DEB ROY ARNO</p>
-        <p><span className="font-semibold">Teacher Phone:</span> +88017XXXXXXX247</p>
+        <p><span className="font-semibold">Teacher Phone:</span> +8801518972493</p>
+        
       </div>
 
       <div className="overflow-x-auto mt-4">

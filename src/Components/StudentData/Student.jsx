@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import StudentDatas from "./StudentData"; // অথবা StudentData.jsx
+import { RotatingLines } from "react-loader-spinner";
 
 const Student = () => {
     const [students, setStudents] = useState([]);
@@ -35,7 +36,20 @@ const Student = () => {
             </h2>
 
             {loading ? (
-                <p className="text-center text-gray-500">Loading...</p>
+                <div className="flex items-center justify-center h-screen">
+                    <RotatingLines
+                        visible={true}
+                        height="96"
+                        width="96"
+                        color="grey"
+                        strokeWidth="5"
+                        animationDuration="0.75"
+                        ariaLabel="rotating-lines-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                    />
+                </div>
+
             ) : students.length > 0 ? (
                 students.map(student => (
                     <StudentDatas key={student._id} students={student} />
