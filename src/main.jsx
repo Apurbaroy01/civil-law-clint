@@ -7,13 +7,28 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Root from './Root.jsx';
+import MainPages from './Components/MainPage/MainPage.jsx';
+import Student from './Components/StudentData/Student.jsx';
+
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    children:[
+      {
+        path:"/",
+        element:<MainPages></MainPages>
+      },
+      {
+        path:"studentData",
+        element:<Student></Student>
+      },
+      
+    ]
   },
+  
 ]);
 
 createRoot(document.getElementById('root')).render(

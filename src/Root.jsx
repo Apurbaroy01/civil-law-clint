@@ -1,9 +1,12 @@
+import { Outlet, useNavigation } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
-import MainPage from "./Components/MainPage/MainPage";
 import Navbar from "./Components/Navbar/Navbar";
+import { RotatingLines } from "react-loader-spinner";
 
 
 const Root = () => {
+    const navigation = useNavigation();
+
     return (
         <div>
             <div>
@@ -11,13 +14,13 @@ const Root = () => {
             </div>
 
             <div>
-                <MainPage></MainPage>
+                <Outlet></Outlet>
             </div>
 
             <div>
                 <Footer></Footer>
             </div>
-            
+
         </div>
     );
 };

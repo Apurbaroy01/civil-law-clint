@@ -1,0 +1,50 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import StudentDatas from "./StudentData"; // অথবা StudentData.jsx
+
+const Student = () => {
+    const [students, setStudents] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const search = searchParams.get("search") || "";
+
+    useEffect(() => {
+        setLoading(true);
+        fetch("http://localhost:5000/student")
+            .then((res) => res.json())
+            .then((data) => {
+                const filtered = data.filter(student =>
+                    student.name.toLowerCase().includes(search.toLowerCase()) ||
+                    student.roll?.toString().includes(search)
+                );
+                setStudents(filtered);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Error fetching students:", err);
+                setStudents([]);
+                setLoading(false);
+            });
+    }, [search]);
+
+    return (
+        <div className="max-w-7xl mx-auto px-4 py-6">
+            <h2 className="text-xl font-semibold mb-4">
+                Search Result for: <span className="text-blue-600">{search}</span>
+            </h2>
+
+            {loading ? (
+                <p className="text-center text-gray-500">Loading...</p>
+            ) : students.length > 0 ? (
+                students.map(student => (
+                    <StudentDatas key={student._id} students={student} />
+                ))
+            ) : (
+                <p className="text-red-500 text-center">No student found.</p>
+            )}
+        </div>
+    );
+};
+
+export default Student;

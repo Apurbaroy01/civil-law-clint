@@ -2,7 +2,7 @@ import Lottie from 'lottie-react';
 import logo from '../../assets/logo/Justice balance law.json';
 import Swal from 'sweetalert2';
 
-const MainPage = () => {
+const MainPages = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -151,4 +151,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default MainPages;
