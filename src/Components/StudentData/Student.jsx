@@ -15,10 +15,16 @@ const Student = () => {
         fetch("http://localhost:5000/student")
             .then((res) => res.json())
             .then((data) => {
-                const filtered = data.filter(student =>
-                    student.name.toLowerCase().includes(search.toLowerCase()) ||
-                    student.roll?.toString().includes(search)
-                );
+                const filtered = data.filter(student => {
+                    const searchTerm = search.toLowerCase();
+
+                    return (
+                        // student.name?.toLowerCase().includes(searchTerm) ||
+                        // student.roll?.toString().includes(searchTerm) ||
+                        student.email?.toLowerCase().includes(searchTerm)
+                    );
+                });
+
                 setStudents(filtered);
                 setLoading(false);
             })

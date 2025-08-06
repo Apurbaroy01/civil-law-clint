@@ -44,9 +44,9 @@ const StudentDatas = ({students}) => {
         <h1 className="text-2xl md:text-3xl font-bold text-blue-700 mb-1">
           Civil Laws Course Report
         </h1>
-        <p className="text-sm text-gray-500">
+        {/* <p className="text-sm text-gray-500">
           Mid-Term Evaluation Summary
-        </p>
+        </p> */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-6 bg-gray-50 p-4 rounded-md border">
@@ -84,9 +84,9 @@ const StudentDatas = ({students}) => {
         </table>
       </div>
 
-      <div className="mt-6 border-t pt-4 text-sm text-gray-600 text-justify">
+      {/* <div className="mt-6 border-t pt-4 text-sm text-gray-600 text-justify">
         📌 <span className="font-medium text-black">Note:</span> If the student's performance is below expectations, consult with the assigned teacher for improvement strategies. Continuous effort and guidance can help the student perform better in future evaluations.
-      </div>
+      </div> */}
 
       <div className="mt-8 flex justify-center print:hidden">
         <button
