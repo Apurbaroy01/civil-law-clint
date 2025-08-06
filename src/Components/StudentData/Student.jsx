@@ -12,7 +12,7 @@ const Student = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch("http://localhost:5000/student")
+        fetch("https://law-server-vert.vercel.app/student")
             .then((res) => res.json())
             .then((data) => {
                 const filtered = data.filter(student => {

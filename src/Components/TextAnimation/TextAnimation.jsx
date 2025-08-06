@@ -1,4 +1,5 @@
 
+import { GiMailShirt } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
 const TextAnimation = () => {
@@ -12,7 +13,7 @@ const TextAnimation = () => {
                 
                 
             >
-                <Link>আপনার রেজাল্ট দেখার জন্য উপরের সার্চ বক্সের মধ্যে ইমেইল লিখে সার্চ করুন ...</Link>
+                <Link>আপনার রেজাল্ট দেখার জন্য উপরের সার্চ বক্সের মধ্যে আপনার ইমেইল লিখে সার্চ করুন ...</Link>
                 
             </marquee>
         </div>

@@ -18,7 +18,7 @@ const MainPages = () => {
         const data = { year, month, name, email,university, whatappNumber, phoneNumber, address,}
         console.log(data)
 
-        fetch('http://localhost:5000/student', {
+        fetch('https://law-server-vert.vercel.app/student', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
