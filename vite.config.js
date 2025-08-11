@@ -4,7 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-   darkMode: 'media', // OS এর ডার্ক মোড detect করবে
+  darkMode: 'media', // OS এর ডার্ক মোড detect করবে
+  
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   plugins: [
     tailwindcss(),
     react()
