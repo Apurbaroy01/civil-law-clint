@@ -3,6 +3,13 @@ import logo from "../../assets/logo/Justice balance law.json";
 import Swal from "sweetalert2";
 
 const MainPages = () => {
+
+  const now = new Date();
+  const appliedAt = now.toLocaleString('en-US', {
+    timeZone: 'Asia/Dhaka',
+    hour12: true
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,9 +22,10 @@ const MainPages = () => {
       whatappNumber: form.whatappNumber.value,
       phoneNumber: form.phoneNumber.value,
       address: form.address.value,
+      date: appliedAt,
     };
 
-    fetch("https://law-server-vert.vercel.app/student", {
+    fetch("http://localhost:5000/admination", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -27,6 +35,7 @@ const MainPages = () => {
         form.reset();
         Swal.fire({
           title: "Submit Successful!",
+          text: "আপনার আবেদন অনুমোদনের অপেক্ষায় রয়েছে।",
           icon: "success",
           draggable: true,
         });
@@ -36,7 +45,7 @@ const MainPages = () => {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center px-4 py-8">
       <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl w-full max-w-6xl flex flex-col lg:flex-row overflow-hidden transition-colors duration-500">
-        
+
         {/* Left Side */}
         <div className="lg:w-1/2 p-8 bg-blue-100 dark:bg-gray-700 flex flex-col justify-center items-center text-center">
           <h1 className="text-4xl font-extrabold text-blue-800 dark:text-blue-200 mb-2">
@@ -56,7 +65,7 @@ const MainPages = () => {
             Register Now
           </h3>
           <form className="space-y-5" onSubmit={handleSubmit}>
-            
+
             {/* Year & Month */}
             <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between mt-6">
               <div className="w-full md:w-1/2">
